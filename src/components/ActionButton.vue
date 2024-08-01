@@ -37,6 +37,6 @@ button {
 }
 
 .secondary {
-  @apply text-brand-blue-1 bg-transparent hover:bg-brand-blue-2 hover:text-white;
+  @apply text-brand-blue-1 bg-transparent hover:bg-brand-blue-2 hover:text-white border-2;
 }
 </style>
