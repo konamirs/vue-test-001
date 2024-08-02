@@ -1,7 +1,7 @@
 <script>
-import ActionButton from '@/components/ActionButton.vue'
-import ProfileImage from '@/components/ProfileImage.vue'
-import TheSubnav from '@/components/TheSubnav.vue'
+import ActionButton from '@/components/Shared/ActionButton.vue'
+import ProfileImage from '@/components/Nagivation/ProfileImage.vue'
+import TheSubnav from '@/components/Nagivation/TheSubnav.vue'
 
 export default {
   name: 'MainNav',
@@ -56,7 +56,13 @@ export default {
 
         <div class="ml-auto flex h-full items-center">
           <profile-image v-if="isLoggedIn" data-test="profile-image" />
-          <action-button v-else text="Sign in" data-test="login-button" @click="loginUser" />
+          <action-button
+            v-else
+            text="Sign in"
+            class="rounded-lg border-2 border-blue-200"
+            data-test="login-button"
+            @click="loginUser"
+          />
         </div>
       </div>
 
