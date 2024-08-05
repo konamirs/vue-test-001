@@ -2,11 +2,11 @@
   <main>
     <section class="relative left-0 -top-0 w-screen flex flex-col h-screen pt-10 pb-20">
       <div class="grid grid-cols-12">
-        <div class="col-span-5 col-start-1">
+        <div class="col-span-5 col-start-2">
           <TheHeadline />
           <search-form />
         </div>
-        <div class="col-span-3 col-start-8 self-center">
+        <div class="col-span-3 col-start-9 self-center">
           <animated-pic />
         </div>
       </div>

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import nextElementInList from '@/components/Utils/nextElementInList'
+import nextElementInList from '@/Utils/nextElementInList'
 
 export default {
   name: 'TheHeadline',

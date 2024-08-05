@@ -1,4 +1,8 @@
 <script>
+import { mapActions, mapStores } from 'pinia'
+
+import { useUserStore } from '@/Stores/user'
+
 import ActionButton from '@/components/Shared/ActionButton.vue'
 import ProfileImage from '@/components/Nagivation/ProfileImage.vue'
 import TheSubnav from '@/components/Nagivation/TheSubnav.vue'
@@ -13,13 +17,18 @@ export default {
 
   data() {
     return {
-      company: 'Bobo Careers',
-      url: 'https://google.com',
-      menuItems: ['Teams', 'Locations', 'Life at work', 'How we hire', 'Students', 'Jobs'],
-      isLoggedIn: false
+      menuItems: [
+        { text: 'Teams', url: '/' },
+        { text: 'Locations', url: '/' },
+        { text: 'Life at work', url: '/' },
+        { text: 'How we hire', url: '/' },
+        { text: 'Students', url: '/' },
+        { text: 'Jobs', url: '/jobs/results' }
+      ]
     }
   },
   computed: {
+    ...mapStores(useUserStore, ['isLoggedIn']),
     headerHeightClass() {
       return {
         'h-16': !this.isLoggedIn,
@@ -28,9 +37,7 @@ export default {
     }
   },
   methods: {
-    loginUser() {
-      this.isLoggedIn = true
-    }
+    ...mapActions(useUserStore, ['loginUser'])
   }
 }
 </script>
@@ -40,16 +47,16 @@ export default {
   <header :class="['w-full', 'text-sm', headerHeightClass]">
     <div class="fixed top-0 left-0 h-16 w-full bg-white">
       <div class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8">
-        <a href="url" class="flex h-full items-center text-3xl">
-          {{ company }}
-        </a>
+        <router-link :to="{ name: 'Home' }" class="flex h-full items-center text-3xl">
+          Test Trial
+        </router-link>
 
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
             <li v-for="menuItem in menuItems" :key="menuItem" class="ml-9 h-full first:ml-0">
-              <a href="" class="flex h-full items-center py-2.5">
-                {{ menuItem }}
-              </a>
+              <router-link :to="menuItem.url" class="flex h-full items-center py-2.5">
+                {{ menuItem.text }}
+              </router-link>
             </li>
           </ul>
         </nav>

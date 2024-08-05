@@ -8,12 +8,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "dev": "vite",
     "format": "prettier --write src/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backend": "json-server --watch db.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "axios": "^1.7.3",
+    "pinia": "^2.2.0",
     "vue": "^3.4.29",
     "vue-router": "^4.0.13"
   },
@@ -26,6 +29,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "jsdom": "^24.1.0",
+    "json-server": "^1.0.0-beta.1",
     "postcss": "^8.4.40",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.5",
