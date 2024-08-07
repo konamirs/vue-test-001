@@ -1,18 +1,18 @@
 <template>
-  <collapsible-accordion header="Organizations">
+  <collapsible-accordion header="Job Types">
     <div class="mt-5">
       <fieldset>
         <ul class="flex flex-row flex-wrap">
-          <li v-for="organization in UNIQUE_ORGANIZATIONS" :key="organization" class="h-8 w-1/2">
+          <li v-for="jobType in UNIQUE_JOB_TYPES" :key="jobType" class="h-8 w-1/2">
             <input
               type="checkbox"
-              id="organization"
-              v-model="selectedOrganizations"
-              :value="organization"
+              id="jobType"
+              v-model="selectedJobTypes"
+              :value="jobType"
               class="mr-3"
-              @change="selectOrganization"
+              @change="selectJobType"
             />
-            <label :for="organization">{{ organization }}</label>
+            <label :for="jobType">{{ jobType }}</label>
           </li>
         </ul>
       </fieldset>
@@ -29,16 +29,16 @@ import { useUserStore } from '@/Stores/user'
 
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 
-const selectedOrganizations = ref([])
+const selectedJobTypes = ref([])
 
 const jobsStore = useJobsStore()
-const UNIQUE_ORGANIZATIONS = computed(() => jobsStore.UNIQUE_ORGANIZATIONS)
+const UNIQUE_JOB_TYPES = computed(() => jobsStore.UNIQUE_JOB_TYPES)
 
 const userStore = useUserStore()
 const router = useRouter()
 
-const selectOrganization = () => {
-  userStore.ADD_SELECTED_ORGANIZATIONS(selectedOrganizations.value)
+const selectJobType = () => {
+  userStore.ADD_SELECTED_JOB_TYPES(selectedJobTypes.value)
   router.push({ name: 'JobResults' })
 }
 </script>

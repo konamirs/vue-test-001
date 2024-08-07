@@ -1,22 +1,25 @@
 <template>
   <div class="w-full h-16 border-b border-solid border-brand-gray-1 bg-white">
     <div class="flex h-full items-center px-8">
-      <div>
+      <div v-if="onJobResultsPage">
         <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
-        <span><span class="text-brand-green-1">1696</span> jobs matched</span>
+        <span
+          ><span class="text-brand-green-1">{{ FILTERED_JOBS.length }}</span> jobs matched</span
+        >
       </div>
-      This is Sub
     </div>
   </div>
 </template>
 
-<script>
-  export default{
-    name: "TheSubnav",
-    data(){
-      return{
-        onJobResultsPage: true,
-      }
-    }
-  }
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+import { useJobsStore } from '@/Stores/Jobs'
+
+const route = useRoute()
+const onJobResultsPage = computed(() => route.name === 'JobResults')
+
+const jobStore = useJobsStore()
+const FILTERED_JOBS = computed(() => jobStore.FILTERED_JOBS)
 </script>

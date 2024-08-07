@@ -10,6 +10,8 @@
 
       <collapsible-accordion header="degree" />
 
+      <job-filters-sidebar-job-types />
+
       <job-filters-sidebar-organizations />
     </section>
   </div>
@@ -18,14 +20,15 @@
 <script>
 import ActionButton from '@/components/Shared/ActionButton.vue'
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
-import JobFiltersSidebarOrganizations from './JobFiltersSidebarOrganizations.vue'
-
+import JobFiltersSidebarOrganizations from '@/components/JobResults/JobFilterSidebar/JobFiltersSidebarOrganizations.vue'
+import JobFiltersSidebarJobTypes from '@/components/JobResults/JobFilterSidebar/JobFiltersSidebarJobTypes.vue'
 export default {
   name: 'JobFiltersSidebar',
   components: {
     ActionButton,
     CollapsibleAccordion,
-    JobFiltersSidebarOrganizations
+    JobFiltersSidebarOrganizations,
+    JobFiltersSidebarJobTypes
   }
 }
 </script>
