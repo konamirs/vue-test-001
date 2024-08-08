@@ -2,36 +2,30 @@
   <button :class="buttonClass">{{ text }}</button>
 </template>
 
-<script>
+<script setup>
 import { computed, toRefs } from 'vue'
 
-export default {
-  name: 'ActionButton',
-  props: {
-    text: {
-      type: String,
-      require: true
-    },
-    type: {
-      type: String,
-      require: false,
-      default: 'primary',
-      validator(value) {
-        return ['primary', 'secondary'].includes(value)
-      }
-    }
+const props = defineProps({
+  text: {
+    type: String,
+    require: true
   },
-
-  setup(props) {
-    const { type } = toRefs(props)
-    const buttonClass = computed(() => {
-      return {
-        [type.value]: true
-      }
-    })
-    return { buttonClass }
+  type: {
+    type: String,
+    require: false,
+    default: 'primary',
+    validator(value) {
+      return ['primary', 'secondary'].includes(value)
+    }
   }
-}
+})
+
+const { type } = toRefs(props)
+const buttonClass = computed(() => {
+  return {
+    [props.type]: true
+  }
+})
 </script>
 
 <style scoped>

@@ -30,47 +30,30 @@
   </main>
 </template>
 
-<script>
-import { mapActions, mapState } from 'pinia'
+<script setup>
+import { computed, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
-import { useJobsStore, FETCH_JOBS, FILTERED_JOBS } from '@/Stores/Jobs'
+import { useJobsStore } from '@/Stores/Jobs'
 import JobListing from '@/components/JobResults/JobListing.vue'
 
-export default {
-  name: 'JobListings',
-  components: { JobListing },
+import usePreviousAndNextPages from '@/composables/usePreviousAndNextPages'
 
-  computed: {
-    currentPage() {
-      return Number.parseInt(this.$route.query.page || '1')
-    },
+const jobsStore = useJobsStore()
+onMounted(jobsStore.FETCH_JOBS)
 
-    previousPage() {
-      const previousPage = this.currentPage - 1
-      return previousPage >= 1 ? previousPage : undefined
-    },
+const FILTERED_JOBS = computed(() => jobsStore.FILTERED_JOBS)
 
-    ...mapState(useJobsStore, {
-      FILTERED_JOBS,
-      nextPage() {
-        const nextPage = this.currentPage + 1
-        const maxPage = Math.ceil(this.FILTERED_JOBS.length / 10)
-        return nextPage <= maxPage ? nextPage : undefined
-      },
-      displayedJobs() {
-        const pageNumber = this.currentPage
-        const firstJobIndex = (pageNumber - 1) * 10
-        const lastJobIndex = pageNumber * 10
-        return this.FILTERED_JOBS.slice(firstJobIndex, lastJobIndex)
-      }
-    })
-  },
+const route = useRoute()
+const currentPage = computed(() => Number.parseInt(route.query.page || '1'))
+const maxPage = computed(() => Math.ceil(FILTERED_JOBS.value.length / 10))
 
-  async mounted() {
-    this.FETCH_JOBS()
-  },
-  methods: {
-    ...mapActions(useJobsStore, [FETCH_JOBS])
-  }
-}
+const { previousPage, nextPage } = usePreviousAndNextPages(currentPage, maxPage)
+
+const displayedJobs = computed(() => {
+  const pageNumber = currentPage.value
+  const firstJobIndex = (pageNumber - 1) * 10
+  const lastJobIndex = pageNumber * 10
+  return FILTERED_JOBS.value.slice(firstJobIndex, lastJobIndex)
+})
 </script>
