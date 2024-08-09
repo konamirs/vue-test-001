@@ -1,9 +1,3 @@
-<script>
-export default {
-  name: 'UserCard'
-}
-</script>
-
 <template>
   <div class="svg-frame">
     <svg style="--i: 0; --j: 0">

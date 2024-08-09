@@ -1,12 +1,17 @@
 export interface Job {
   id: number
   title: string
-  organiztion: string
+  organization: string
   degree: string
   jobType: string
-  location: string[]
+  locations: string[]
   minimumQualifications: string[]
   preferredQualifications: string[]
   description: string[]
   dateAdded: String
+}
+
+export interface Degree {
+  id: number
+  degree: string
 }

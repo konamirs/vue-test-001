@@ -40,19 +40,9 @@
   </main>
 </template>
 
-<script>
+<script setup lang="ts">
 import TheHeadline from '@/components/MainSearch/TheHeadline.vue'
 import AnimatedPic from '@/components/Shared/AnimatedPic.vue'
 import SearchForm from '@/components/MainSearch/SearchForm.vue'
-import SpotLight from './SpotLight.vue'
-
-export default {
-  name: 'TheHero',
-  components: {
-    TheHeadline,
-    AnimatedPic,
-    SearchForm,
-    SpotLight
-  }
-}
+import SpotLight from '@/components/MainSearch/SpotLight.vue'
 </script>
