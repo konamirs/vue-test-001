@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 import getDegrees from '@/api/getDegrees'
 import type { Degree } from '@/api/type'
 
-export const useDereesStore = defineStore('degrees', () => {
+export const useDegreesStore = defineStore('degrees', () => {
   const degrees = ref<Degree[]>([])
 
   const FETCH_DEGREES = async () => {

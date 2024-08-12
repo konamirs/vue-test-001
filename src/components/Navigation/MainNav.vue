@@ -17,7 +17,7 @@ const menuItems = ref([
 ])
 
 const userStore = useUserStore()
-const loginUser = userStore.loginUser
+const LOGIN_USER = userStore.LOGIN_USER
 const isLoggedIn = computed(() => userStore.isLoggedIn)
 
 const headerHeightClass = computed(() => ({
@@ -50,7 +50,7 @@ const headerHeightClass = computed(() => ({
             v-else
             text="Sign in"
             class="rounded-lg border-2 border-blue-200"
-            @click="loginUser"
+            @click="LOGIN_USER"
           />
         </div>
       </div>

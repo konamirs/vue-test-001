@@ -1,45 +1,32 @@
 <template>
-  <div class="flex w-96 flex-col border-r border-solid border-brand-gray-1 bg-white p-4">
+  <div class="flex flex-col p-4 bg-white border-r border-solid border-brand-gray-1 w-96">
     <section class="pb-5">
-      <div class="flex flex-row justify-between">
-        <h3 class="my-4 text-base font-semibold">What do you want to do?</h3>
-        <div class="flex items-center text-sm">
-          <action-button text="Clear Filters" type="secondary" />
-        </div>
-      </div>
+      <job-filter-sidebar-prompt />
 
-      <collapsible-accordion header="degree" />
+      <job-filters-sidebar-skills />
 
-      <job-filters-sidebar-job-types />
-      <job-filters-sidebar-organizations />
+      <collapsible-accordion header="Degrees"
+        ><job-filter-sidebar-degrees />
+      </collapsible-accordion>
 
-      <job-filter-sidebar-checkbox-group
-        header="Job Types"
-        :unique-values="UNIQUE_JOB_TYPES"
-        :action="userStore.ADD_SELECTED_JOB_TYPES"
-      />
-      <job-filter-sidebar-checkbox-group
-        header="Organizations"
-        :unique-values="UNIQUE_ORGANIZATIONS"
-        :action="userStore.ADD_SELECTED_ORGANIZATIONS"
-      />
+      <collapsible-accordion header="Job Types"
+        ><job-filter-sidebar-job-types />
+      </collapsible-accordion>
+
+      <collapsible-accordion header="Organizations"
+        ><job-filter-sidebar-organizations />
+      </collapsible-accordion>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
-import ActionButton from '@/components/Shared/ActionButton.vue'
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
-import JobFilterSidebarCheckboxGroup from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarCheckboxGroup.vue'
+import JobFilterSidebarPrompt from './JobFilterSidebarPrompt.vue'
 
-import { useJobsStore } from '@/Stores/Jobs'
-import { useUserStore } from '@/Stores/user'
+import JobFilterSidebarDegrees from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarDegrees.vue'
+import JobFilterSidebarJobTypes from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarJobTypes.vue'
+import JobFilterSidebarOrganizations from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarOrganizations.vue'
 
-const jobsStore = useJobsStore()
-const UNIQUE_ORGANIZATIONS = computed(() => jobsStore.UNIQUE_ORGANIZATIONS)
-const UNIQUE_JOB_TYPES = computed(() => jobsStore.UNIQUE_JOB_TYPES)
-
-const userStore = useUserStore()
+import JobFiltersSidebarSkills from '@/components/JobResults/JobFilterSidebar/JobFiltersSidebarSkills.vue'
 </script>
