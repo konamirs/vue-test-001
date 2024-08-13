@@ -8,7 +8,7 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier',
-    'plugin:vitest-globar/recommended'
+    'plugin:vitest-globars/recommended'
   ],
   parserOptions: {
     ecmaVersion: 'latest'
