@@ -4,7 +4,7 @@
       v-model.lazy.trim="skillsSearchTerm"
       type="text"
       class="h-12 w-full rounded border border-solid border-brand-gray-1 p-3 text-base shadow-gray"
-      placeholder="Computer programming, Finance degree"
+      placeholder="What do you want to find?"
     />
   </div>
 </template>

@@ -34,10 +34,10 @@ button {
 }
 
 .primary {
-  @apply rounded text-white bg-brand-blue-1 hover:shadow-blue border-r-2;
+  @apply rounded-lg text-white bg-brand-blue-1 hover:shadow;
 }
 
 .secondary {
-  @apply text-brand-blue-1 bg-transparent hover:bg-brand-blue-2 hover:text-white;
+  @apply text-brand-blue-1 bg-transparent hover:bg-brand-blue-2 hover:text-white rounded-xl;
 }
 </style>

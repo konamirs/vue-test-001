@@ -5,7 +5,6 @@ import { useUserStore } from '@/Stores/user'
 
 import ActionButton from '@/components/Shared/ActionButton.vue'
 import ProfileImage from '@/components/Navigation/ProfileImage.vue'
-import TheSubnav from '@/components/Navigation/TheSubnav.vue'
 
 const menuItems = ref([
   { text: 'Teams', url: '/teams' },
@@ -19,15 +18,10 @@ const menuItems = ref([
 const userStore = useUserStore()
 const LOGIN_USER = userStore.LOGIN_USER
 const isLoggedIn = computed(() => userStore.isLoggedIn)
-
-const headerHeightClass = computed(() => ({
-  'h-16': !isLoggedIn,
-  'h-32': isLoggedIn
-}))
 </script>
 
 <template>
-  <header :class="['w-full', 'text-sm', headerHeightClass]">
+  <header :class="['w-full', 'text-sm', 'h-16']">
     <div class="fixed top-0 left-0 h-16 w-full bg-white z-50">
       <div class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8">
         <router-link :to="{ name: 'Home' }" class="flex h-full items-center text-3xl">
@@ -54,8 +48,6 @@ const headerHeightClass = computed(() => ({
           />
         </div>
       </div>
-
-      <the-subnav v-if="isLoggedIn" />
     </div>
   </header>
 </template>
