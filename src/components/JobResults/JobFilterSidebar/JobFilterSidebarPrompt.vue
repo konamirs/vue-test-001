@@ -3,7 +3,8 @@
     <h3 class="my-4 text-base font-semibold">
       <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
       <span
-        ><span class="text-brand-green-1">{{ FILTERED_JOBS.length }}</span> jobs matched</span
+        ><span class="text-brand-green-1 text-xl">{{ FILTERED_JOBS.length }}</span> jobs
+        matched</span
       >
     </h3>
     <div class="flex items-center text-sm">

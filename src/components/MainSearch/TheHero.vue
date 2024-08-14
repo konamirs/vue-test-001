@@ -17,12 +17,12 @@
       <template #default="{ img, title, description }">
         <router-link
           to="/jobs/results"
-          class="mx-5 flex h-96 w-72 flex-col rounded-lg border bg-brand-gray-2"
+          class="mx-5 flex h-96 w-72 flex-col rounded-lg border bg-brand-gray-2 text-center items-center"
         >
-          <img :src="img" class="object-contain" />
+          <img :src="img" class="rounded-lg h-52 w-64 mt-3" />
 
-          <div class="mt-3 h-48 px-6 py-4">
-            <h3 class="text-lg font-medium">
+          <div class="h-48 px-6 py-4">
+            <h3 class="text-lg font-bold">
               {{ title }}
             </h3>
 
@@ -30,7 +30,9 @@
               {{ description }}
             </p>
 
-            <router-link to="/jobs/results" class="px-6 pb-4 text-sm text-brand-blue-1"
+            <router-link
+              to="/jobs/results"
+              class="mt-3 inline-block font-mono text-sm font-bold bg-slate-500 text-white py-2 px-4 rounded-full transition duration-100 transform hover:opacity-75"
               >See jobs</router-link
             >
           </div>

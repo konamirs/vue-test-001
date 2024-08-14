@@ -2,6 +2,7 @@
   <ul>
     <li v-for="spotlight in spotlights" :key="spotlight.id">
       <slot
+        :id="spotlight.id"
         :img="spotlight.img"
         :title="spotlight.title"
         :description="spotlight.description"

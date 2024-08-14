@@ -9,7 +9,13 @@ import {
   faAngleDown,
   faAngleUp,
   faLocationDot,
-  faBuilding
+  faBuilding,
+  faBriefcaseMedical,
+  faCheck,
+  faClock,
+  faMoneyBills,
+  faHandHoldingHand,
+  faSeedling
 } from '@fortawesome/free-solid-svg-icons'
 import App from '@/App.vue'
 
@@ -18,11 +24,20 @@ import '@/assets/tailwind.css'
 
 import router from '@/router.js'
 
+import PrimeVue from 'primevue/config'
+import Aura from '@primevue/themes/aura'
+
 library.add(faSearch)
 library.add(faAngleUp)
 library.add(faAngleDown)
 library.add(faLocationDot)
 library.add(faBuilding)
+library.add(faBriefcaseMedical)
+library.add(faCheck)
+library.add(faClock)
+library.add(faMoneyBills)
+library.add(faHandHoldingHand)
+library.add(faSeedling)
 
 const pinia = createPinia()
 // new Vue({
@@ -32,4 +47,13 @@ const pinia = createPinia()
 //   render: (h) => h(App)
 // }).$mount('#app')
 
-createApp(App).use(pinia).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+createApp(App)
+  .use(pinia)
+  .use(router)
+  .use(PrimeVue, {
+    theme: {
+      preset: Aura
+    }
+  })
+  .component('font-awesome-icon', FontAwesomeIcon)
+  .mount('#app')

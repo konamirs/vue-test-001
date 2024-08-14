@@ -33,6 +33,18 @@
       "img": "https://images.unsplash.com/photo-1511376777868-611b54f68947",
       "title": "Executive Leadership",
       "description": "Be a leader for everyone. Leadership builds character."
+    },
+    {
+      "id": 3,
+      "img": "https://www.gstatic.com/hiring/CportalUi/ai_spotlight_tile.jpg",
+      "title": "Creative environment",
+      "description": "Many ideas waiting to be used. Work with creative attitude."
+    },
+    {
+      "id": 4,
+      "img": "https://www.gstatic.com/careerthumbnails/SOFTWARE_ENGINEERING/208_001.jpg",
+      "title": "Friendly  environment",
+      "description": "Innovative community from across the world."
     }
   ],
   "jobs": [

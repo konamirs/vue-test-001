@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import JobResultsView from '@/views/JobResultsView.vue'
 import TeamView from '@/views/TeamView.vue'
 import JobView from '@/views/JobView.vue'
+import BenefitView from './views/BenefitView.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/teams',
     name: 'Teams',
     component: TeamView
+  },
+  {
+    path: '/benefits',
+    name: 'Benefits',
+    component: BenefitView
   }
 ]
 

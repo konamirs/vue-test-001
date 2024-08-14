@@ -9,8 +9,7 @@ import ProfileImage from '@/components/Navigation/ProfileImage.vue'
 const menuItems = ref([
   { text: 'Teams', url: '/teams' },
   { text: 'Locations', url: '/' },
-  { text: 'Life at work', url: '/' },
-  { text: 'How we hire', url: '/' },
+  { text: 'Benefits', url: '/Benefits' },
   { text: 'Students', url: '/' },
   { text: 'Jobs', url: '/jobs/results' }
 ])

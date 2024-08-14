@@ -15,12 +15,15 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@primevue/themes": "^4.0.4",
     "axios": "^1.7.3",
     "node": "^22.6.0",
     "pinia": "^2.2.0",
+    "primevue": "^4.0.4",
     "typescript": "^5.5.4",
     "vue": "^3.4.29",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vueperslides": "^3.5.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

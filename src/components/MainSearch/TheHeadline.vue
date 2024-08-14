@@ -13,7 +13,6 @@
 import { defineComponent } from 'vue'
 
 import nextElementInList from '@/Utils/nextElementInList'
-import { faUnderline } from '@fortawesome/free-solid-svg-icons'
 
 interface Data {
   action: string
