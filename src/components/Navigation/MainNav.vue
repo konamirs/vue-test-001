@@ -8,9 +8,10 @@ import ProfileImage from '@/components/Navigation/ProfileImage.vue'
 
 const menuItems = ref([
   { text: 'Teams', url: '/teams' },
-  { text: 'Locations', url: '/' },
-  { text: 'Benefits', url: '/Benefits' },
-  { text: 'Students', url: '/' },
+  { text: 'Locations', url: '/locations' },
+  { text: 'Benefits', url: '/benefits' },
+  { text: 'Sign In', url: '/signin' },
+  { text: 'Sign Up', url: '/signup' },
   { text: 'Jobs', url: '/jobs/results' }
 ])
 
@@ -21,8 +22,10 @@ const isLoggedIn = computed(() => userStore.isLoggedIn)
 
 <template>
   <header :class="['w-full', 'text-sm', 'h-16']">
-    <div class="fixed top-0 left-0 h-16 w-full bg-white z-50">
-      <div class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8">
+    <div class="fixed top-0 left-0 h-16 w-full shadow-lg z-50">
+      <div
+        class="mx-auto flex h-full flex-nowrap border-b border-solid bg-zinc-50 border-brand-gray-1 px-8"
+      >
         <router-link :to="{ name: 'Home' }" class="flex h-full items-center text-3xl">
           Test Trial
         </router-link>

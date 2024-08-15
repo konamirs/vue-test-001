@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   text: {
@@ -20,7 +20,6 @@ const props = defineProps({
   }
 })
 
-const { type } = toRefs(props)
 const buttonClass = computed(() => {
   return {
     [props.type]: true

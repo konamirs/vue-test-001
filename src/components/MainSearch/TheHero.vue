@@ -17,7 +17,7 @@
       <template #default="{ img, title, description }">
         <router-link
           to="/jobs/results"
-          class="mx-5 flex h-96 w-72 flex-col rounded-lg border bg-brand-gray-2 text-center items-center"
+          class="mx-5 flex shadow-lg h-80 w-72 flex-col rounded-lg border bg-brand-gray-2 text-center items-center"
         >
           <img :src="img" class="rounded-lg h-52 w-64 mt-3" />
 
@@ -29,12 +29,6 @@
             <p class="mt-3 text-sm">
               {{ description }}
             </p>
-
-            <router-link
-              to="/jobs/results"
-              class="mt-3 inline-block font-mono text-sm font-bold bg-slate-500 text-white py-2 px-4 rounded-full transition duration-100 transform hover:opacity-75"
-              >See jobs</router-link
-            >
           </div>
         </router-link>
       </template>
