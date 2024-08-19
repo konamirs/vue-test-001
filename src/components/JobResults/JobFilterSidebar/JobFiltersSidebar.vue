@@ -1,11 +1,15 @@
 <template>
   <div
-    class="fixed h-screen flex flex-col p-4 bg-white border-r border-solid border-brand-gray-1 w-96"
+    class="fixed h-screen flex flex-col p-4 bg-white border-r border-solid border-brand-gray-1 w-96 overflow-y-auto md:h-full"
   >
-    <section class="pb-5">
+    <section class="pb-5 mb-8">
       <job-filter-sidebar-prompt />
 
       <job-filters-sidebar-skills />
+
+      <collapsible-accordion header="Locations"
+        ><job-filter-sidebar-location />
+      </collapsible-accordion>
 
       <collapsible-accordion header="Degrees"
         ><job-filter-sidebar-degrees />
@@ -27,13 +31,14 @@ import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
-import JobFilterSidebarPrompt from './JobFilterSidebarPrompt.vue'
+import JobFilterSidebarPrompt from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarPrompt.vue'
 
 import JobFilterSidebarDegrees from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarDegrees.vue'
 import JobFilterSidebarJobTypes from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarJobTypes.vue'
 import JobFilterSidebarOrganizations from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarOrganizations.vue'
 
 import JobFiltersSidebarSkills from '@/components/JobResults/JobFilterSidebar/JobFiltersSidebarSkills.vue'
+import JobFilterSidebarLocation from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarLocation.vue'
 import { useUserStore } from '@/Stores/user'
 
 const route = useRoute()
@@ -44,5 +49,11 @@ const parseSkillsSearchTerm = () => {
   userStore.UPDATE_SKILLS_SEARCH_TERM(role)
 }
 
+const parseLocationsSearchLocation = () => {
+  const location = (route.query.location as string) || ''
+  userStore.UPDATE_LOCATIONS_SEARCH_TERM(location)
+}
+
+onMounted(parseLocationsSearchLocation)
 onMounted(parseSkillsSearchTerm)
 </script>

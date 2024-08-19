@@ -26,7 +26,10 @@ const isLoggedIn = computed(() => userStore.isLoggedIn)
       <div
         class="mx-auto flex h-full flex-nowrap border-b border-solid bg-zinc-50 border-brand-gray-1 px-8"
       >
-        <router-link :to="{ name: 'Home' }" class="flex h-full items-center text-3xl">
+        <router-link
+          :to="{ name: 'Home' }"
+          class="flex h-full items-center text-3xl font-extrabold text-gray-500"
+        >
           Test Trial
         </router-link>
 

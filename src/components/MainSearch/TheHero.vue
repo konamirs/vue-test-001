@@ -34,6 +34,11 @@
       </template>
     </spot-light>
   </main>
+
+  <div class="bottom-0 left-0 h-52 w-full shadow-lg bg-gray-300"></div>
+
+  <sub-end-nav />
+  <end-nav />
 </template>
 
 <script setup lang="ts">
@@ -41,4 +46,6 @@ import TheHeadline from '@/components/MainSearch/TheHeadline.vue'
 import AnimatedPic from '@/components/Shared/AnimatedPic.vue'
 import SearchForm from '@/components/MainSearch/SearchForm.vue'
 import SpotLight from '@/components/MainSearch/SpotLight.vue'
+import EndNav from '@/components/Shared/EndNav.vue'
+import SubEndNav from '@/components/Shared/SubEndNav.vue'
 </script>

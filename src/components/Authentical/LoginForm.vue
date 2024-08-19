@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <form class="form">
+    <form class="form" @submit.prevent="OnSubmit">
       <div class="form-title"><span>Sign in to your</span></div>
       <div class="title-2"><span> PAGE </span></div>
       <div class="input-container">
-        <input placeholder="Email" type="email" class="input-mail" />
+        <input placeholder="Email" type="email" class="input-mail" v-model="form.username" />
         <span> </span>
       </div>
 
@@ -16,7 +16,7 @@
       </section>
 
       <div class="input-container">
-        <input placeholder="Password" type="password" class="input-pwd" />
+        <input placeholder="Password" type="password" class="input-pwd" v-model="form.password" />
       </div>
       <button class="submit" type="submit">
         <span class="sign-text">Sign in</span>
@@ -30,6 +30,33 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter, RouterLink } from 'vue-router'
+
+const router = useRouter()
+// const store = useAuthStore()
+
+type PayLoad = {
+  username: string
+  password: string
+}
+
+const form = ref<PayLoad>({
+  password: 'password',
+  username: 'now@you.cook'
+})
+
+const OnSubmit = async () => {
+  try {
+    // await store.loginUser(form.value)
+    router.push('/')
+  } catch (error) {
+    console.log(error)
+  }
+}
+</script>
+
 <style>
 .container {
   display: flex;
@@ -37,7 +64,7 @@
   align-items: center;
   height: 650px;
   margin: 0;
-  background-image: url('https://wallpapers.com/images/featured/space-sjryfre8k8f6i3ge.jpg');
+  background-image: url('@/components/images/space-sjryfre8k8f6i3ge.jpg');
   background-size: cover;
   background-position: center;
 }

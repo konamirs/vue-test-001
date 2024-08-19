@@ -1,22 +1,26 @@
 <template>
   <li class="mb-7">
     <div
-      class="ml-96 block rounded-2xl border border-solid border-gray-300 p-2 drop-shadow-lg bg-white hover:shadow-gray"
+      class="block rounded-2xl border border-solid border-gray-300 p-2 drop-shadow-lg bg-white hover:shadow-gray"
     >
       <div class="mx-8 border-b border-solid border-brand-gray-2 pt-5 pb-2">
         <h2 class="mb-2 text-2xl font-semibold">{{ job.title }}</h2>
 
         <div class="flex flex-row align-middle">
           <div class="mr-5">
-            <font-awesome-icon :icon="['fas', 'building']" />
-            <span><span></span> {{ job.organization }}</span>
+            <font-awesome-icon :icon="['fas', 'building']" class="mr-2" />
+            <span> {{ job.organization }}</span>
           </div>
 
-          <div>
+          <div class="ml-10">
             <ul>
-              <li v-for="location in job.locations" :key="location" class="mr-5 inline-block">
-                <font-awesome-icon :icon="['fas', 'location-dot']" />
-                <span><span></span> {{ location }}</span>
+              <font-awesome-icon :icon="['fas', 'location-dot']" />
+              <li
+                v-for="(location, index) in job.locations"
+                :key="location"
+                class="inline-block ml-1"
+              >
+                <span>{{ location }}<span v-if="index < job.locations.length - 1">, </span></span>
               </li>
             </ul>
           </div>

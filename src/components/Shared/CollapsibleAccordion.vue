@@ -6,7 +6,7 @@
       <font-awesome-icon :icon="caretIcon" />
     </div>
 
-    <div v-if="isOpen" class="mt-5 w-full">
+    <div v-if="isOpen" class="mt-5 w-full p-2 border-t border-slate-300">
       <slot>
         <p>Whoops, somebody forgotto populated me!</p>
       </slot>

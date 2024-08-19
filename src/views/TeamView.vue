@@ -59,9 +59,13 @@
       </template>
     </spot-light>
   </main>
+  <sub-end-nav class="mt-48" />
+  <end-nav />
 </template>
 
 <script setup lang="ts">
 import HeaderContainer from '@/components/Shared/HeaderContainer.vue'
 import SpotLight from '@/components/MainSearch/SpotLight.vue'
+import SubEndNav from '@/components/Shared/SubEndNav.vue'
+import EndNav from '@/components/Shared/EndNav.vue'
 </script>

@@ -2,7 +2,7 @@
   <div class="container">
     <form class="form">
       <div class="form-title"><span>Sign up to your</span></div>
-      <div class="title-2"><span>SPACE</span></div>
+      <div class="title-2"><span>PAGE</span></div>
       <div class="input-container">
         <input placeholder="Email" type="email" class="input-mail" />
         <span> </span>

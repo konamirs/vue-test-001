@@ -11,11 +11,16 @@
     </template>
   </header-container>
   <div ref="map" class="w-10/12 h-[36rem] ml-32 my-8"></div>
+
+  <sub-end-nav />
+  <end-nav />
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import HeaderContainer from '@/components/Shared/HeaderContainer.vue'
+import SubEndNav from '@/components/Shared/SubEndNav.vue'
+import EndNav from '@/components/Shared/EndNav.vue'
 const map = ref(null)
 
 onMounted(() => {

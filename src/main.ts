@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import {
   faSearch,
   faAngleDown,
@@ -15,7 +16,9 @@ import {
   faClock,
   faMoneyBills,
   faHandHoldingHand,
-  faSeedling
+  faSeedling,
+  faArrowUpRightFromSquare,
+  faCircleQuestion
 } from '@fortawesome/free-solid-svg-icons'
 import App from '@/App.vue'
 
@@ -26,6 +29,9 @@ import router from '@/router.js'
 
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
+import { BiInstagram, BiTwitter, BiYoutube, BiLinkedin, BiFacebook } from 'oh-vue-icons/icons'
+
+addIcons(BiInstagram, BiTwitter, BiYoutube, BiLinkedin, BiFacebook)
 
 library.add(faSearch)
 library.add(faAngleUp)
@@ -38,6 +44,8 @@ library.add(faClock)
 library.add(faMoneyBills)
 library.add(faHandHoldingHand)
 library.add(faSeedling)
+library.add(faArrowUpRightFromSquare)
+library.add(faCircleQuestion)
 
 const pinia = createPinia()
 // new Vue({
@@ -56,4 +64,5 @@ createApp(App)
     }
   })
   .component('font-awesome-icon', FontAwesomeIcon)
+  .component('v-icon', OhVueIcon)
   .mount('#app')
