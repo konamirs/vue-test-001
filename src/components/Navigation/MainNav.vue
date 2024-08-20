@@ -12,6 +12,7 @@ const menuItems = ref([
   { text: 'Benefits', url: '/benefits' },
   { text: 'Sign In', url: '/signin' },
   { text: 'Sign Up', url: '/signup' },
+  { text: 'Add Job', url: '/jobs/results/add' },
   { text: 'Jobs', url: '/jobs/results' }
 ])
 

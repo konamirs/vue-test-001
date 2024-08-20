@@ -5,8 +5,9 @@ import TeamView from '@/views/TeamView.vue'
 import JobView from '@/views/JobView.vue'
 import BenefitView from '@/views/BenefitView.vue'
 import LocationView from '@/views/LocationView.vue'
-import LoginForm from './components/Authentical/LoginForm.vue'
-import SignUpForm from './components/Authentical/SignUpForm.vue'
+import LoginForm from '@/components/Authentical/LoginForm.vue'
+import SignUpForm from '@/components/Authentical/SignUpForm.vue'
+import AddView from '@/views/AddView.vue'
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/signup',
     name: 'SignUp',
     component: SignUpForm
+  },
+  {
+    path: '/jobs/results/add',
+    name: 'AddJobs',
+    component: AddView
   }
 ]
 

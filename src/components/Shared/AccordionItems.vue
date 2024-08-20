@@ -4,7 +4,7 @@
     :key="index"
     :header="accordion.header"
   >
-    <div class="grid grid-cols-3 justify-center items-center border-t border-gray-300">
+    <div class="grid grid-cols-3 justify-center items-center">
       <div class="col-span-1 col-start-1 mx-12">
         <h2 class="text-xl flex flex-nowrap">
           <font-awesome-icon

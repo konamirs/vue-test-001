@@ -8,7 +8,7 @@ export interface Job {
   minimumQualifications: string[]
   preferredQualifications: string[]
   description: string[]
-  dateAdded: String
+  dateAdded: string
 }
 
 export interface Degree {
