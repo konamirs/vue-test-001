@@ -4,14 +4,14 @@
  * @param {string[]} keys
  * @returns {Object}
  */
-const pick = (object, key) => {
-  return keys.reduce((obj, key)=>{
-    if(object && Object.prototype.hasOwnProperty.call(object, key)){
-      //esline-disable-next-line no-param-reassign
-      obj[key] = object[key]
+const pick = (object, keys) => {
+  return keys.reduce((obj, key) => {
+    if (object && Object.prototype.hasOwnProperty.call(object, key)) {
+      // eslint-disable-next-line no-param-reassign
+      obj[key] = object[key];
     }
-    return obj
-  }, {})
-}
+    return obj;
+  }, {});
+};
 
-module.exports = pick
+module.exports = pick;

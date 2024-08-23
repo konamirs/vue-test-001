@@ -63,10 +63,10 @@ interface Accordion {
 
 const accordions = ref<Accordion[]>([])
 
-fetch('db.json')
+fetch(`http://localhost:8000/api/accordion`)
   .then((response) => response.json())
   .then((data) => {
-    accordions.value = data.accordions
+    accordions.value = data[0].accordions
   })
 
 const niceClass = (benefit: string) => {

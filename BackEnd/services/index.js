@@ -1,1 +1,1 @@
-exports.AuthenticationService = require('./Authentication.service')
+exports.AuthenticationService = require("./Authentication.service")

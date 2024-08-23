@@ -1,6 +1,9 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+require('dotenv').config()
 
-exports.ConnectDB = async()=>{
-  await mongoose.connect('mongodb://127.0.0.1:27017/blog')
-  console.log(`database is connect with ${mongoose.connection.host}`)
-}
+exports.ConnectDB = async () => {
+  await mongoose.connect(
+    process.env.MONGO_URL 
+  );
+  console.log(`the db is connect with ${mongoose.connection.host}`);
+};

@@ -1,12 +1,12 @@
-const winston = require('winston')
-const config = require('./config')
+const winston = require('winston');
+const config = require('./config');
 
-const enumerateErrorFormat = wiston.format((info) => {
+const enumerateErrorFormat = winston.format((info) => {
   if (info instanceof Error) {
-    Object.assign(info, {message: info.stack})
+    Object.assign(info, { message: info.stack });
   }
-  return info
-})
+  return info;
+});
 
 const logger = winston.createLogger({
   level: config.env === 'development' ? 'debug' : 'info',
@@ -17,10 +17,10 @@ const logger = winston.createLogger({
     winston.format.printf(({ level, message }) => `${level}: ${message}`)
   ),
   transports: [
-    new wiston.transports.Console({
-      stderrLevels: ['error']
-    })
-  ]
-})
+    new winston.transports.Console({
+      stderrLevels: ['error'],
+    }),
+  ],
+});
 
-module.exports = logger
+module.exports = logger;

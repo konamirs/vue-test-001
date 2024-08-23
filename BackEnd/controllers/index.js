@@ -1,1 +1,1 @@
-exports.AuthenticationController = require('./Authentication.controllers')
+exports.AuthenticationController = require("./Authentication.controllers")

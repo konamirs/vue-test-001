@@ -1,10 +1,19 @@
 <template>
   <div class="container">
-    <form class="form" @submit.prevent="OnSubmit">
+    <Form
+      class="form"
+      :validation-schema="validationSchema"
+      :initial-values="initialValues"
+      @submit="onSubmitHandler"
+    >
       <div class="form-title"><span>Sign in to your</span></div>
       <div class="title-2"><span> PAGE </span></div>
       <div class="input-container">
-        <input placeholder="Email" type="email" class="input-mail" v-model="form.username" />
+        <Field name="email" placeholder="Email" type="text" class="input-mail" />
+         <!-- v-model="form.username" -->
+        <p class="text-red-500 text-xs">
+          <ErrorMessage name="email" />
+        </p>
         <span> </span>
       </div>
 
@@ -16,7 +25,11 @@
       </section>
 
       <div class="input-container">
-        <input placeholder="Password" type="password" class="input-pwd" v-model="form.password" />
+        <Field name="password" placeholder="Password" type="password" class="input-pwd"  />
+        <!-- v-model="form.password" -->
+        <p class="text-red-500 text-xs">
+          <ErrorMessage name="password"  />
+        </p>
       </div>
       <button class="submit" type="submit">
         <span class="sign-text">Sign in</span>
@@ -26,35 +39,55 @@
         No account?
         <router-link to="/signup" class="up">Sign up!</router-link>
       </p>
-    </form>
+    </Form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter, RouterLink } from 'vue-router'
+// import { ref } from 'vue'
+//  useRouter,
+import { RouterLink } from 'vue-router'
+import { Form, ErrorMessage, Field, type GenericObject } from 'vee-validate'
+import * as yup from 'yup'
 
-const router = useRouter()
-// const store = useAuthStore()
-
-type PayLoad = {
-  username: string
-  password: string
-}
-
-const form = ref<PayLoad>({
-  password: 'password',
-  username: 'now@you.cook'
+const validationSchema = yup.object({
+  email: yup.string().required('Email is required').email('Please enter a valid Email'),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(5, 'Password need to be more than 5 characters')
 })
 
-const OnSubmit = async () => {
-  try {
-    // await store.loginUser(form.value)
-    router.push('/')
-  } catch (error) {
-    console.log(error)
-  }
+const initialValues = {
+  email: '',
+  password: ''
 }
+
+const onSubmitHandler = (e:GenericObject) => {
+  alert(JSON.stringify(e))
+}
+
+// const router = useRouter()
+// // const store = useAuthStore()
+
+// type PayLoad = {
+//   username: string
+//   password: string
+// }
+
+// const form = ref<PayLoad>({
+//   password: 'password',
+//   username: 'now@you.cook'
+// })
+
+// const OnSubmit = async () => {
+//   try {
+//     // await store.loginUser(form.value)
+//     router.push('/')
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 </script>
 
 <style>
