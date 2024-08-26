@@ -52,18 +52,12 @@
 <script setup lang="ts">
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 import { ref } from 'vue'
-
-interface Accordion {
-  header: string
-  icon: string
-  title: string
-  benefits: string[]
-  moreBenefits: string[]
-}
+import type { Accordion } from '@/api/type';
 
 const accordions = ref<Accordion[]>([])
+const baseUrl = import.meta.env.VITE_APP_API_URL
 
-fetch(`http://localhost:8000/api/accordion`)
+fetch(`${baseUrl}/api/accordion`)
   .then((response) => response.json())
   .then((data) => {
     accordions.value = data[0].accordions

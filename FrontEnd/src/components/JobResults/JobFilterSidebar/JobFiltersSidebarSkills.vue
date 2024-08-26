@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useUserStore } from '@/Stores/user'
+import { useUserStore } from '@/api/Stores/user'
 
 const userStore = useUserStore()
 

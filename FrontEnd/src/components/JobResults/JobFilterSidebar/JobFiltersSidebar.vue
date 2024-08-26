@@ -39,7 +39,7 @@ import JobFilterSidebarOrganizations from '@/components/JobResults/JobFilterSide
 
 import JobFiltersSidebarSkills from '@/components/JobResults/JobFilterSidebar/JobFiltersSidebarSkills.vue'
 import JobFilterSidebarLocation from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarLocation.vue'
-import { useUserStore } from '@/Stores/user'
+import { useUserStore } from '@/api/Stores/user'
 
 const route = useRoute()
 const userStore = useUserStore()

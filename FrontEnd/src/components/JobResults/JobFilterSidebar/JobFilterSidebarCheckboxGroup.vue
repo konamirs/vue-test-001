@@ -22,7 +22,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { CLEAR_USER_JOB_FILTER_SELECTIONS, useUserStore } from '@/Stores/user'
+import { CLEAR_USER_JOB_FILTER_SELECTIONS, useUserStore } from '@/api/Stores/user'
 
 const props = defineProps({
   uniqueValues: {

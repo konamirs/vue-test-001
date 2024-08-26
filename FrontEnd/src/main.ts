@@ -5,7 +5,8 @@ import { createApp } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import 'vue-toastification/dist/index.css'
+import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 import {
   faSearch,
   faAngleDown,
@@ -59,6 +60,9 @@ const pinia = createPinia()
 createApp(App)
   .use(pinia)
   .use(router)
+  .use(Vue3Toastify, {
+    autoClose: 3000,
+  } as ToastContainerOptions)
   .use(PrimeVue, {
     theme: {
       preset: Aura

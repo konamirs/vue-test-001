@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
-const { ConstantKeys } = require("../constant/KEYS");
 
-exports.GenerateToken = async(user)=>{
-    const token = await jwt.sign({userId:user._id},ConstantKeys.JWT_KEY,{
-        expiresIn:"1d"
-    })
-        return token;
-}
+exports.GenerateToken = async (user) => {
+  console.log(process.env.JWT_KEY);
+  const token = await jwt.sign({ userId: user._id }, process.env.JWT_KEY, {
+    expiresIn: "1d",
+  });
+  return token;
+};

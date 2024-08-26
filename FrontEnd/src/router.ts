@@ -41,13 +41,13 @@ const routes = [
     component: LocationView
   },
   {
-    path: '/signin',
-    name: 'SignIn',
+    path: '/login',
+    name: 'Login',
     component: LoginForm
   },
   {
-    path: '/signup',
-    name: 'SignUp',
+    path: '/register',
+    name: 'Register',
     component: SignUpForm
   },
   {

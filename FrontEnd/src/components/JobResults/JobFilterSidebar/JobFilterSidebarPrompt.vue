@@ -20,8 +20,8 @@
 <script setup lang="ts">
 import ActionButton from '@/components/Shared/ActionButton.vue'
 
-import { useUserStore } from '@/Stores/user'
-import { useJobsStore } from '@/Stores/Jobs'
+import { useUserStore } from '@/api/Stores/user'
+import { useJobsStore } from '@/api/Stores/Jobs'
 import { computed } from 'vue'
 
 const userStore = useUserStore()

@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+require('dotenv').config
 const ApiError = require("../utils/ApiError");
 const httpStatus = require("http-status");
 const {ConstantKeys} = require("../constant/KEYS")

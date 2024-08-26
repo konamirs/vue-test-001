@@ -34,8 +34,8 @@
 import { computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useJobsStore } from '@/Stores/Jobs'
-import { useDegreesStore } from '@/Stores/degrees'
+import { useJobsStore } from '@/api/Stores/Jobs'
+import { useDegreesStore } from '@/api/Stores/degrees'
 import JobListing from '@/components/JobResults/JobListing.vue'
 
 import usePreviousAndNextPages from '@/composables/usePreviousAndNextPages'

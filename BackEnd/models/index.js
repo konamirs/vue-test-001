@@ -1,3 +1,5 @@
 exports.UserModel = require("./User.models")
-exports.BlogPostModel = require("./post.models")
+exports.BlogPostModel = require("./jobs.models")
+exports.DegreesModel = require("./Degrees.models")
 exports.ContactModel = require("./Contact.models")
+exports.AccordionModel = require('./accordion.models')

@@ -15,3 +15,18 @@ export interface Degree {
   id: number
   degree: string
 }
+
+export interface Accordion {
+  header: string
+  icon: string
+  title: string
+  benefits: string[]
+  moreBenefits: string[]
+}
+
+export interface Spotlight {
+  id: number
+  img: string
+  title: string
+  description: string
+}

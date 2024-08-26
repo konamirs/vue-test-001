@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-    header:{
+    title:{
         type:String,
         required:true,
     },
@@ -14,6 +14,6 @@ const schema = new mongoose.Schema({
     timestamps:true
 })
 
-const post = mongoose.model("post",schema);
+const jobs = mongoose.model("jobs",schema);
 
-module.exports = post;
+module.exports = jobs;

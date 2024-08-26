@@ -9,8 +9,8 @@
 import { computed } from 'vue'
 import JobFilterSidebarCheckboxGroup from '@/components/JobResults/JobFilterSidebar/JobFilterSidebarCheckboxGroup.vue'
 
-import { useUserStore } from '@/Stores/user'
-import { useJobsStore } from '@/Stores/Jobs'
+import { useUserStore } from '@/api/Stores/user'
+import { useJobsStore } from '@/api/Stores/Jobs'
 
 const jobsStore = useJobsStore()
 const UNIQUE_ORGANIZATIONS = computed(() => jobsStore.UNIQUE_ORGANIZATIONS)

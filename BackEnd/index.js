@@ -11,7 +11,7 @@ const httpStatus = require("http-status");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-var Mongoclient = require('mongodb').MongoClient
+var Mongoclient = require("mongodb").MongoClient;
 // middlewares
 app.use(cors());
 app.use("/static/", express.static(path.join(__dirname, "./uploads/")));
@@ -21,17 +21,43 @@ app.use(express.json());
 console.log({ poer: process.env.PORT });
 const port = process.env.PORT || 3001;
 ConnectDB();
-const  post = require("./models/post.models");
+const jobs = require("./models/jobs.models");
+const degrees = require("./models/Degrees.models");
+const spotlights = require("./models/spotlight.models");
+const accordion = require("./models/accordion.models");
 
 app.get("/", (req, res) => {
   res.send("Hi this working");
 });
 
-app.get("/api/accordion", (req, res) => {
+app.get("/api/jobs", (req, res) => {
+  jobs.find().then((data) => {
+    res.send(data);
+  });
+});
 
-  post.find().then((data) => {
-      res.send(data);
-    });
+app.get(`/api/jobs/id`, (req, res) => {
+  jobs.find().then((data) => {
+    res.send(data);
+  });
+});
+
+app.get("/api/accordion", (req, res) => {
+  accordion.find().then((data) => {
+    res.send(data);
+  });
+});
+
+app.get("/api/degrees", (req, res) => {
+  degrees.find().then((data) => {
+    res.send(data);
+  });
+});
+
+app.get("/api/spotlights", (req, res) => {
+  spotlights.find().then((data) => {
+    res.send(data);
+  });
 });
 // routes
 app.use("/api/v1", Authentication);

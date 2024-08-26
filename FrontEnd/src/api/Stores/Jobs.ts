@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia'
 
-import getJobs from '@/api/getJobs'
 import type { Job } from '@/api/type'
 
-import { useUserStore } from '@/Stores/user'
+import { useUserStore } from '@/api/Stores/user'
+
+const baseUrl = import.meta.env.VITE_APP_API_URL
 
 export const FETCH_JOBS = 'FETCH_JOBS'
 export const UNIQUE_ORGANIZATIONS = 'UNIQUE_ORGANIZATIONS'
@@ -26,8 +27,11 @@ export const useJobsStore = defineStore('Jobs', {
   }),
   actions: {
     async [FETCH_JOBS]() {
-      const jobs = await getJobs()
-      this.jobs = jobs
+      fetch(`${baseUrl}/api/jobs`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.jobs = data[0].jobs
+        })
     }
   },
   getters: {

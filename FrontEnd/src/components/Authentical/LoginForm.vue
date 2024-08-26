@@ -6,7 +6,7 @@
       :initial-values="initialValues"
       @submit="onSubmitHandler"
     >
-      <div class="form-title"><span>Sign in to your</span></div>
+      <div class="form-title"><span>Login to your</span></div>
       <div class="title-2"><span> PAGE </span></div>
       <div class="input-container">
         <Field name="email" placeholder="Email" type="text" class="input-mail" />
@@ -32,12 +32,12 @@
         </p>
       </div>
       <button class="submit" type="submit">
-        <span class="sign-text">Sign in</span>
+        <span class="sign-text">Login</span>
       </button>
 
       <p class="signup-link">
         No account?
-        <router-link to="/signup" class="up">Sign up!</router-link>
+        <router-link to="/register" class="up">Register!</router-link>
       </p>
     </Form>
   </div>
@@ -45,10 +45,14 @@
 
 <script setup lang="ts">
 // import { ref } from 'vue'
-//  useRouter,
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import { Form, ErrorMessage, Field, type GenericObject } from 'vee-validate'
 import * as yup from 'yup'
+import axios, { AxiosError } from 'axios';
+import { toast } from 'vue3-toastify';
+import { AuthenticalStore } from '@/api/Stores/authentical';
+
+const router = useRouter()
 
 const validationSchema = yup.object({
   email: yup.string().required('Email is required').email('Please enter a valid Email'),
@@ -63,8 +67,28 @@ const initialValues = {
   password: ''
 }
 
-const onSubmitHandler = (e:GenericObject) => {
-  alert(JSON.stringify(e))
+interface ErrorResponse{
+  message: string
+}
+
+const store = AuthenticalStore()
+
+const onSubmitHandler = async (e: GenericObject) => {
+  try {
+    const res = await axios.post('http://localhost:8000/api/v1/login', e);
+    const data = res.data;
+    toast.success(data?.msg);
+    store.setToken(data.token)
+    router.push('/')
+  } catch (e) {
+    // TypeScript error handling
+    if (axios.isAxiosError(e)) {
+      const axiosError = e as AxiosError<ErrorResponse>;
+      toast.error(axiosError.response?.data?.message || 'An error occurred');
+    } else {
+      toast.error('An unexpected error occurred');
+    }
+  }
 }
 
 // const router = useRouter()

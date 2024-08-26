@@ -1,5 +1,7 @@
+
 class ConstantKeys{
-  static JWT_KEY = process.env.JWT_KEY;
+  static JWT_KEY = process.env.JWT_KEY
 }
 
-module.exports = {ConstantKeys};
+const ConstantKey = ConstantKeys
+module.exports = {ConstantKey};

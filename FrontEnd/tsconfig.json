@@ -13,6 +13,9 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "types": [
+      "vue3-toastify/global"
+    ],
     "paths": {
       "@/*": ["./src/*"]
     },

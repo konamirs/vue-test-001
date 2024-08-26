@@ -6,7 +6,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useJobsStore } from '@/Stores/Jobs'
+import { useJobsStore } from '@/api/Stores/Jobs'
 
 const route = useRoute()
 const onJobResultsPage = computed(() => route.name === 'JobResults')

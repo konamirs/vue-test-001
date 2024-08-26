@@ -1,24 +1,28 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-
-import { useUserStore } from '@/Stores/user'
+import { useRouter } from 'vue-router'
+import { AuthenticalStore } from '@/api/Stores/authentical'
 
 import ActionButton from '@/components/Shared/ActionButton.vue'
-import ProfileImage from '@/components/Navigation/ProfileImage.vue'
+import { toast } from 'vue3-toastify'
 
 const menuItems = ref([
   { text: 'Teams', url: '/teams' },
   { text: 'Locations', url: '/locations' },
   { text: 'Benefits', url: '/benefits' },
-  { text: 'Sign In', url: '/signin' },
-  { text: 'Sign Up', url: '/signup' },
   { text: 'Add Job', url: '/jobs/results/add' },
   { text: 'Jobs', url: '/jobs/results' }
 ])
 
-const userStore = useUserStore()
-const LOGIN_USER = userStore.LOGIN_USER
-const isLoggedIn = computed(() => userStore.isLoggedIn)
+const router = useRouter()
+
+const store = AuthenticalStore()
+
+const token = computed(() => store.token)
+const logout = () => {
+  store.logoutButton()
+  toast.success('Logout Sucessfully')
+}
 </script>
 
 <template>
@@ -45,12 +49,17 @@ const isLoggedIn = computed(() => userStore.isLoggedIn)
         </nav>
 
         <div class="ml-auto flex h-full items-center">
-          <profile-image v-if="isLoggedIn" />
+          <action-button
+            v-if="token"
+            text="Log Out"
+            class="rounded-lg border-2 border-blue-200"
+            @click="logout"
+          />
           <action-button
             v-else
-            text="Sign in"
+            text="Login"
             class="rounded-lg border-2 border-blue-200"
-            @click="LOGIN_USER"
+            @click="router.push({ name: 'Login' })"
           />
         </div>
       </div>

@@ -1,8 +1,10 @@
 const httpStatus = require("http-status");
-const { UserModel ,BlogPostModel,ContactModel} = require("../models");
+const { UserModel ,BlogPostModel, DegreesModel,ContactModel} = require("../models");
 const ApiError = require("../utils/ApiError");
 const { GenerateToken } = require("../utils/jwt.utils");
-const cloundary = require("../utils/cloudnary")
+const cloundary = require("../utils/cloudnary");
+const degrees = require("../models/Degrees.models");
+const spotlights = require('../models/spotlight.models')
 
 const uploadOnCLoundary = async(path)=>{
   const result = await cloundary.uploader.upload(path,{
@@ -111,6 +113,52 @@ const Contact = async(body)=>{
 }
 
 
+const createDegrees= async(user,body,file)=>{
+  const {title,content} = body;
+
+
+const existance = await degrees.findOne({title});
+if(existance){
+throw new ApiError(httpStatus.BAD_REQUEST,"Title already exist try with another name")
+}
+
+await degrees.create({
+    degree: content,
+    id: title
+  })
+
+  return {
+    msg:"post added successfully"
+  };
+
+
+}
+
+
+const createSpotLight= async(user,body,file)=>{
+  const {title,content, description} = body;
+
+
+const existance = await degrees.findOne({title});
+if(existance){
+throw new ApiError(httpStatus.BAD_REQUEST,"Title already exist try with another name")
+}
+
+await spotlights.create({
+    title: content,
+    img: title,
+    description: description,
+    id: title
+  })
+
+  return {
+    msg:"post added successfully"
+  };
+
+
+}
+
+
 module.exports = {
     register,
     loginService,
@@ -119,5 +167,7 @@ module.exports = {
     AllPost,
     PostById,
     deleteById,
-    Contact
+    Contact,
+    createDegrees,
+    createSpotLight
 }
