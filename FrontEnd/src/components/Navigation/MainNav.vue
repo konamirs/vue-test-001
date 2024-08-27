@@ -10,7 +10,6 @@ const menuItems = ref([
   { text: 'Teams', url: '/teams' },
   { text: 'Locations', url: '/locations' },
   { text: 'Benefits', url: '/benefits' },
-  { text: 'Add Job', url: '/jobs/results/add' },
   { text: 'Jobs', url: '/jobs/results' }
 ])
 
